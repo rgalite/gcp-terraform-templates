@@ -25,5 +25,6 @@ variable "region" {
 }
 
 variable "project_number" {
-  type        = string    
+  type        = string
+  description = "The project number to host the cluster in (required)"
 }
