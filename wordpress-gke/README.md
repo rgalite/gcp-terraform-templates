@@ -9,6 +9,8 @@ Their name must follow the following naming convention:
 - `${subnet-name}-gke-pods`
 - `${subnet-name}-gke-services`
 
+Also, make sure you define a private connection in the network you intend to deploy Cloud SQL to.
+
 ## Deploy
 
 - `terraform init` to get the plugins
@@ -19,11 +21,13 @@ Their name must follow the following naming convention:
 
 ## Inputs
 
-| Name           | Description                                                                          | Type | Default | Required |
-| -------------- | ------------------------------------------------------------------------------------ | ---- | ------- | :------: |
-| project_id     | The project ID to host the cluster in (required)                                     |      |         |   yes    |
-| cluster_name   | The name of the cluster (required)                                                   |      |         |   yes    |
-| network        | The VPC network to host the cluster in (required)                                    |      |         |   yes    |
-| subnetwork     | The subnetwork to host the cluster in (required)                                     |      |         |   yes    |
-| region         | The region to host the cluster in (optional if zonal cluster / required if regional) |      | null    |   yes    |
-| project_number | The project number to host the cluster in (required)                                 |      |         |   yes    |
+| Name           | Description                                                                          | Type   | Default | Required |
+| -------------- | ------------------------------------------------------------------------------------ | ------ | ------- | :------: |
+| project_id     | The project ID to host the cluster in (required)                                     | string |         |   yes    |
+| cluster_name   | The name of the cluster (required)                                                   | string |         |   yes    |
+| network        | The VPC network to host the cluster in (required)                                    | string |         |   yes    |
+| subnetwork     | The subnetwork to host the cluster in (required)                                     | string |         |   yes    |
+| region         | The region to host the cluster in (optional if zonal cluster / required if regional) | string |         |   yes    |
+| zone           | The zone to host the cloud sql instance in (required)                                | string |         |   yes    |
+| project_number | The project number to host the cluster in (required)                                 | string |         |   yes    |
+| project_number | Prefix that will be used for each created resource                                   | string | wp      |    no    |

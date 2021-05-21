@@ -20,11 +20,22 @@ variable "subnetwork" {
 
 variable "region" {
   type        = string
-  description = "The region to host the cluster in (optional if zonal cluster / required if regional)"
+  description = "The region to host the cluster in (required)"
+}
+
+variable "zone" {
+  type        = string
+  description = "The zone to host the cloud sql instance in (required)"
   default     = null
 }
 
 variable "project_number" {
   type        = string
   description = "The project number to host the cluster in (required)"
+}
+
+variable "prefix" {
+  type        = string
+  description = "Prefix that will be used for each created resource"
+  default     = "wp"
 }
